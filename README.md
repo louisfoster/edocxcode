@@ -18,8 +18,8 @@ But for now, it has some simple instructions to reference for when setting up my
 1. Create a new repo in github, create it with a `readme` and `.gitignore` for swift
 2. Open terminal, clone repo to your code directory
 3. Open root directory and `mkdir docs ios`
-4a. Ensure jekyll is installed and add the `Gemfile`, `_config.xml` and `index.md` from this repo to the project's `docs` directory
-4b. Run `bundle install` to setup the docs site server and assets, run `bundle exec jekyll serve` to view the site locally at [localhost:4000](http://localhost:4000/)
+4. Ensure jekyll is installed and add the `Gemfile`, `_config.xml` and `index.md` from this repo to the project's `docs` directory
+4. Run `bundle install` to setup the docs site server and assets, run `bundle exec jekyll serve` to view the site locally at [localhost:4000](http://localhost:4000/)
 5. Open Xcode and create a single page ios project in the ios directory, give it any name and don't initialise with version control
 6. Remove the main storyboard file and remove its entry from the `info.plist` file
 7. Add an Asset catalogue named `art.scnassets`
@@ -47,10 +47,15 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 11. Create an outlet to the view in the Main class file
 12. Add a scene, camera, light, object to the view and setup the view (running this should load with no problems)
 13. Exit xcode, return to the newly created xcode directory in the ios directory
-14. Add the `Podfile` to this directory
-15. Ensure cocoapods is installed and run `pod init`
+14. Ensure cocoapods is installed and run `pod init`
+15. In the newly created `Podfile` add these lines directly under the `# Pods for <project name>` line:
+```ruby
+inhibit_all_warnings!
+pod 'SwiftLint'
+```
+15. Run `pod install`
 16. Add the `.swiftlint.yml` file to the directory
-17. In the xcworkspace directory, open the contents.xcworkspacedata file and in the <Workspace..> tag add this item:
+17. In the newly created xcworkspace directory, open the contents.xcworkspacedata file and in the <Workspace..> tag add this item:
 ```xml
 <FileRef
     location = "group:.swiftlint.yml">
