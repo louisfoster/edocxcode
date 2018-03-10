@@ -64,7 +64,7 @@ pod 'SwiftLint'
 18. Open the xcode workspace: `open <project name>.xcworkspace`
 19. In the main project's `Build Phases` after the `Check Pods..` entry add a new `Run Script..` with this line: `"${PODS_ROOT}/SwiftLint/swiftlint"`
 20. Build the project, lint errors should now be visible (if there are any). Project should also run as before.
-22. Add these lines to the `.gitignore` for preventing future commiting of unnecessary items:
+22. Add these lines to the `.gitignore` for preventing future commiting of unnecessary items (yes I understand the irony of repeating certain lines in this file unnecessarily but I was having issues with not including certain file and don't have time to figure it out):
 ```
 .idea
 docs/_site
@@ -75,6 +75,17 @@ xcuserdata
 *xcworkspace/xcuserdata/*
 *.blend1
 *.kra-autosave.kra
+.DS_Store
+*.app.dSYM.zip
+build/
+*.xcuserdatad
+xcuserdata
+Pods/
+*.ipa
+*.xcuserstate
+*.xcworkspace/xcuserdata/*.xcuserdatad/
+*/*.xcodeproj/xcuserdata/
+fastlane/report.xml
 ```
 23. In the root directory, run `git add .` and commit+push all the new stuff
 24. Back in github, go to settings, github pages -> source -> master branch /docs folder, then save.
